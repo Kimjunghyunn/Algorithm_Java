@@ -1,17 +1,20 @@
 
-/**
-* data = 노드 안에 있는 값
-* lt = 루트(부모)노드의 왼쪽노드(자식)의 주소값을 저장
-* rt = 루트(부모)노드의 오른쪽노드(자식)의 주소값을 저장
-**/
-class Node{
+/** Node 클래스
+ * data = 노드 안에 있는 값
+ * lt = 루트(부모)노드의 왼쪽노드(자식)의 주소값을 저장
+ * rt = 루트(부모)노드의 오른쪽노드(자식)의 주소값을 저장
+ **/
+
+class Node {
     int data;
     Node lt, rt;
+
     public Node(int val) {
         data = val;
         lt = rt = null;
     }
 }
+
 /*깊이우선탐색(이진트리순회)*/
 public class DepthFirstSearch {
     Node root;
