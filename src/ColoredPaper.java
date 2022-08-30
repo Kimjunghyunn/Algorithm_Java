@@ -1,29 +1,30 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class ColoredPaper {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int[][] p = new int[100][100];
+        int total = 0; //검은 영역의 넓이
+        int n = Integer.parseInt(br.readLine()); //색종이의 수
 
-        int t = sc.nextInt();
-        int cnt = 0;
+        boolean[][] arr = new boolean[101][101]; //도화지
+        for (int i = 0; i < n; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
 
-        for(int i=0; i<t; i++) {
-            int x = sc.nextInt();
-            int y = sc.nextInt();
-
-            for(int k=x; k<x+10; k++) {
-                for(int m=y; m<y+10; m++) {
-                    if(p[k][m] == 0) {
-                        p[k][m] = 1;
-                        cnt++;
+            for (int j = x; j < x+10; j++) {
+                for (int k = y; k < y+10; k++) {
+                    if (!arr[j][k] ) {
+                        arr[j][k] = true;
+                        total++;
                     }
                 }
             }
         }
-
-        System.out.println(cnt);
-
+        System.out.println(total);
     }
 }
